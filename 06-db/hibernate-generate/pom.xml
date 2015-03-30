@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>ru.nsu.java.db</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>api</artifactId>
+  <packaging>jar</packaging>
+
+  <name>DAO API</name>
+  
+  <build>
+    <plugins>
+     <plugin>
+       <groupId>org.codehaus.mojo</groupId>
+       <artifactId>hibernate3-maven-plugin</artifactId>
+       <version>2.2</version>
+         <configuration>
+           <components>
+             <component>
+               <name>hbm2hbmxml</name>
+               <implementation>jdbcconfiguration</implementation>
+               <outputDirectory>target/generated-resources/hibernate3</outputDirectory>
+             </component>
+             <component>
+               <name>hbm2java</name>
+               <implementation>jdbcconfiguration</implementation>
+               <outputDirectory>target/generated-sources/hibernate3</outputDirectory>
+             </component>
+           </components>
+           <componentProperties>
+             <revengfile>src/main/resources/reveng.xml</revengfile>
+             <propertyfile>src/main/resources/hibernate.properties</propertyfile>
+             <packagename>ru.nsu.java.db.hibernate.entities</packagename>
+             <jdk5>true</jdk5>
+             <ejb3>true</ejb3>
+           </componentProperties>
+         </configuration>
+         <dependencies>
+           <dependency>
+             <groupId>cglib</groupId>
+             <artifactId>cglib-nodep</artifactId>
+             <version>2.2.2</version>
+           </dependency>
+           <dependency>
+             <groupId>com.h2database</groupId>
+             <artifactId>h2</artifactId>
+             <version>1.4.186</version>
+           </dependency>
+         </dependencies>
+       </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,20 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+        version="2.0">
+  <persistence-unit name="ru.nsu.java.db.jpa">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <class>ru.nsu.java.db.jpa.entities.AuthorEnt</class>
+    <class>ru.nsu.java.db.jpa.entities.BookEnt</class>
+    <class>ru.nsu.java.db.jpa.entities.BookStoreEnt</class>
+    <class>ru.nsu.java.db.jpa.entities.BookToBookStoreEnt</class>
+    <class>ru.nsu.java.db.jpa.entities.BookToBookStoreEnt$Id</class>
+    <class>ru.nsu.java.db.jpa.entities.LanguageEnt</class>
+    <properties>
+      <property name="hibernate.connection.datasource" value="jdbc/booksDB"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+      <property name="hibernate.current_session_context_class" value="thread"/>
+      <property name="hibernate.persistenceProvider" value="org.hibernate.jpa.HibernatePersistenceProvider"/>
+    </properties>
+  </persistence-unit>
+</persistence>
