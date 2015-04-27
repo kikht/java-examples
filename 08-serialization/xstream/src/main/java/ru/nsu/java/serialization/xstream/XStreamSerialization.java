@@ -9,7 +9,7 @@ public class XStreamSerialization implements SerializationAPI {
     private final XStream xstream = new XStream();
 
     public XStreamSerialization() {
-        xstream.alias("ref-entry", Document.class);
+        //xstream.alias("ref-entry", Document.class);
         xstream.alias("rfc-entry", RFCDocument.class);
         xstream.alias("ref-type", RefType.class);
         xstream.alias("doc-id", DocId.class);
